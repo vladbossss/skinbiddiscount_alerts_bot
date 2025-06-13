@@ -35,11 +35,11 @@ def get_skinbid_discount_by_percent(skin_name):
 
     if discount_elements and price_element:
         for d in discount_elements:
-            text = d.get_text(strip=True).replace("%", "").replace("-", "")
+            text = d.get_text(strip=True).replace("%", " ").replace("-", " ")
             try:
                 discount = float(text)
                 if discount >= 11:
-                    price_text = price_element.text.strip().replace("€", "").replace("$", "").replace(",", "")
+                    price_text = price_element.text.strip().replace("€", "").replace("$", " ").replace(",", " ")
                     return float(price_text), discount
             except ValueError:
                 continue
